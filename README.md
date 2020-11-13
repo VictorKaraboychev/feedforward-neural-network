@@ -15,4 +15,19 @@ Simple neural network in Java for generation and classification of images.
 
 6. Running the network requires running the **`main()`**, during training it will print the current `iteration` and `average error` to the terminal as well as saving files in the output directory, by default its **`src/network/data/output/`**, when it's complete with training it will run the `testing dataset` and save the results in the output directory.
 
-![Zero](src/network/data/output/output0.png)
+
+## Example Outputs
+
+![Zero](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output0.png)
+![One](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output1.png)
+![Two](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output2.png)
+![Three](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output3.png)
+![Four](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output4.png)
+![Five](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output5.png)
+![Six](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output6.png)
+![Seven](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output7.png)
+![Eight](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output8.png)
+![Nine](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output9.png)
+
+These were generated with **500** `training iterations`, **0.05f** `learning rate` and **0.01f** `dropout`.
+
