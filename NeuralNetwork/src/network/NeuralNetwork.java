@@ -5,7 +5,6 @@ import tools.NetworkUtil;
 import tools.Vector3;
 
 public class NeuralNetwork {
-	
 	static Network network;
 	
 	static NetworkConfig netConfig;
@@ -22,7 +21,7 @@ public class NeuralNetwork {
 		netConfig.addFullyConnectedLayer(new Vector3(10, 1, 1), ActivationFunction.NONE);
 		netConfig.addFullyConnectedLayer(new Vector3(16, 1, 1), ActivationFunction.SIGMOID);
 		netConfig.addFullyConnectedLayer(new Vector3(32, 1, 1), ActivationFunction.SIGMOID);
-		netConfig.addFullyConnectedLayer(new Vector3(32, 32, 1), ActivationFunction.SIGMOID);
+		netConfig.addFullyConnectedLayer(new Vector3(32, 32, 3), ActivationFunction.SIGMOID);
 		
 		network = new Network(netConfig);
 		
@@ -44,18 +43,13 @@ public class NeuralNetwork {
 		
 		trainingDataSet = ImageUtil.getImageData(training, false);
 		testingDataSet = ImageUtil.getImageData(testing, false);
-		
-		// Vector3 size = new Vector3(trainingDataSet[0].data.length, trainingDataSet[0].data[0].length, trainingDataSet[0].data[0][0].length);
-		// for (int i = 0; i < trainingDataSet.length; i++) {
-		// 	trainingDataSet[i].data = NetworkUtil.randomArray(size);
-		// }
 	}
 	
 	public static void outputData(Network neuralNetwork, TrainingData[] dataSet) {
 		for (int i = 0; i < dataSet.length; i++) {
 			float[][][]  outputData = neuralNetwork.process(dataSet[i].data);
 			
-			String fileName = path + "output/";
+			String output = path + "output/";
 			
 			
 			int layerNum = network.layers.length-1;
@@ -76,7 +70,7 @@ public class NeuralNetwork {
 			// System.out.println();
 			
 			// Image output saved to file
-			ImageUtil.dataToImage(fileName, layer, i);
+			ImageUtil.dataToImage(output, layer, i);
 		}
 	}
 }
