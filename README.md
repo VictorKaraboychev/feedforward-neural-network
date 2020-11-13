@@ -1,9 +1,9 @@
 # feedforward-neural-network
 
-Simple neural network in Java for generation and classification of images.
+Simple feedforward neural network in Java for generation and classification of images. There is some implimentation for convolutional and pooling layers, however they are still very **WIP** and should not be used. Inspiration drawn from [Neural networks tutorial: Fully Connected 1 [Java] - Finn Eggers](https://www.youtube.com/playlist?list=PLgomWLYGNl1dL1Qsmgumhcg4HOcWZMd3k).
 
 ### Usage Information
-1. Edit the network config, this is found in `NeualNetwork.java` in **`main()`**. Only use `FullyConnected` layers for now, `Convolutional` and `Pooling` layers are **WIP**. Each layer requires a neuron config, 3 dimensional vector (Vector3) and an activation function (NONE for the first layer), and `SIGMOID`, `RELU` or `LeakyRELU` on the other layers, currently **SIGMOID** generally works best.
+1. Edit the network config, this is found in `NeualNetwork.java` in **`main()`**. Only use `FullyConnected` layers for now, `Convolutional` and `Pooling` layers are **WIP**. Each layer requires a neuron config, 3 dimensional vector (Vector3) and an activation function (**NONE** for the first layer), and `SIGMOID`, `RELU` or `LeakyRELU` on the other layers, currently **SIGMOID** generally works best.
 
 2. If you have changed the **`file path`** for training or testing data you must modify the `path` variable found in `NeualNetwork.java` to change the global path. To edit the training and testing path change the `training` and `testing` variables in **`populateTrainingData()`**. The `output` path variable is located in **`outputData()`** and is where the images will be placed during training and testing. Training, testing and output are all relative paths and are based on the global path.
 
@@ -31,3 +31,4 @@ Simple neural network in Java for generation and classification of images.
 
 These were generated with **500** `training iterations`, **0.05f** `learning rate` and **0.01f** `dropout`.
 
+https://youtu.be/d3OtgsGcMLw?list=PLgomWLYGNl1dL1Qsmgumhcg4HOcWZMd3k
