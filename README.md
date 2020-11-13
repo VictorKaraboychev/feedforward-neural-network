@@ -14,3 +14,5 @@ Simple neural network in Java for generation and classification of images.
 5. To modify the `training iterations`, `learning rate` or `dropout rate` you can change the constants under `NeualNetwork.java` in **`main()`**. Learning rate should be kept near **0.05f** and dropout rate around **0.01f - 0.1f**, for most use cases greater than 1000 training iterations won't affect the results much. 
 
 6. Running the network requires running the **`main()`**, during training it will print the current `iteration` and `average error` to the terminal as well as saving files in the output directory, by default its **`src/network/data/output/`**, when it's complete with training it will run the `testing dataset` and save the results in the output directory.
+
+![Zero](src/network/data/output/output0.png)
