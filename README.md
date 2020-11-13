@@ -1,6 +1,6 @@
 # feedforward-neural-network
 
-Simple [feedforward neural network](https://en.wikipedia.org/wiki/Feedforward_neural_network) in Java for generation and classification of images. There is some implimentation for convolutional and pooling layers, however they are still very **WIP** and should not be used. The provided training data set is small which often results in [**`overfiting`**](https://en.wikipedia.org/wiki/Overfitting) of the network and can lead to poor results on foreign data, for better results a much larger data set should be used such as the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/). Inspiration drawn from [Neural networks tutorial: Fully Connected 1 [Java] - Finn Eggers](https://www.youtube.com/playlist?list=PLgomWLYGNl1dL1Qsmgumhcg4HOcWZMd3k).
+Simple [feedforward neural network](https://en.wikipedia.org/wiki/Feedforward_neural_network) in Java for generation and classification of images. There is some implimentation for convolutional and pooling layers, however they are still very **WIP** and should not be used. The provided training data set is small (200 digits) which often results in [overfiting](https://en.wikipedia.org/wiki/Overfitting) of the network and can lead to poor results on foreign data. For better results a much larger data set should be used such as the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/), which contains 60,000 digits. Inspiration drawn from [Neural networks tutorial: Fully Connected 1 [Java] - Finn Eggers](https://www.youtube.com/playlist?list=PLgomWLYGNl1dL1Qsmgumhcg4HOcWZMd3k).
 
 ### Usage Information
 1. Edit the network config, this is found in `NeuralNetwork.java` in **`main()`**. Only use `FullyConnected` layers for now, `Convolutional` and `Pooling` layers are **WIP**. Each layer requires a neuron config, 3 dimensional vector (Vector3) and an activation function (**NONE** for the first layer), and `SIGMOID`, `RELU` or `LeakyRELU` on the other layers, **SIGMOID** generally works best for most situations.
@@ -29,4 +29,6 @@ Simple [feedforward neural network](https://en.wikipedia.org/wiki/Feedforward_ne
 ![Eight](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output8.png)
 ![Nine](https://github.com/InternetAlien/feedforward-neural-network/blob/main/NeuralNetwork/src/network/data/output/output9.png)
 
-These were generated with **500** `training iterations`, **0.05f** `learning rate` and **0.01f** `dropout`.
+**Generation Settings**
+- Network configuration `(10x1x1), (16,1,1), (32,1,1), (32,32,1)`
+- **500** `training iterations`, **0.05f** `learning rate` and **0.01f** `dropout`
