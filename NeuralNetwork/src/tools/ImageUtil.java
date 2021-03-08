@@ -39,7 +39,7 @@ public class ImageUtil {
 				float[][][] dataOutput = numToOutput(i);
 				
 				//CHANGED to invert output
-				data[index] = new TrainingData(dataOutput, dataInput);
+				data[index] = new TrainingData(dataInput, dataOutput);
 				
 				index++;
 			}

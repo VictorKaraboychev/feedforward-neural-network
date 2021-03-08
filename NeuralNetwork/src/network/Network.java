@@ -51,7 +51,7 @@ public class Network {
 				}
 			}
 		}	
-		// output = ActivationFunction.softmax(output);
+		output = ActivationFunction.softmax(output);
 		
 		return output;
 	}
@@ -104,7 +104,7 @@ public class Network {
 				dropOut(0);
 			}
 			avgError /= dataSet.length;
-			
+
 			System.out.println("[DEBUG] Iteration: " + i + " | Average Error: " + avgError);
 			NeuralNetwork.outputData(this, NeuralNetwork.trainingDataSet);
 		}

@@ -6,6 +6,7 @@ public class ActivationFunction {
 	public static int SIGMOID = 1;
 	public static int RELU = 2;
 	public static int LEAKY_RELU = 3;
+	public static int TANH = 4;
 	
 	private int function;
 	
@@ -17,16 +18,20 @@ public class ActivationFunction {
 		float output = 0;
 		
 		switch (function) {
-			case 0:	output = value;
+			case 0:	
+				output = value;
+			break;	
+			case 1:	
+				output = sigmoid(value);
 			break;
-		
-			case 1:	output = sigmoid(value);
+			case 2:	
+				output = ReLU(value);
 			break;
-	
-			case 2:	output = ReLU(value);
+			case 3:	
+				output = leakyReLU(value);
 			break;
-			
-			case 3:	output = leakyReLU(value);
+			case 4:
+				output = tanh(value);
 			break;
 		}
 		
@@ -37,13 +42,17 @@ public class ActivationFunction {
 		float derivative = 0;
 		
 		switch (function) {
-			case 1:	derivative = sigmoidDerivative(value);
+			case 1:	
+				derivative = sigmoidDerivative(value);
 			break;
-	
-			case 2:	derivative = ReLUDerivative(value);
+			case 2:	
+				derivative = ReLUDerivative(value);
 			break;
-			
-			case 3:	derivative = leakyReLUDerivative(value);
+			case 3:	
+				derivative = leakyReLUDerivative(value);
+			break;
+			case 4:
+			derivative = tanhDerivative(value);
 			break;
 		}
 		
@@ -73,11 +82,11 @@ public class ActivationFunction {
 	}
 	
 	private static float sigmoid(float value) {
-		return (float) (1.0f / (1.0f + Math.pow(Math.E, -value)));
+		return (float) (1.0f / (1.0f + Math.exp(-value)));
 	}
 	
 	private static float sigmoidDerivative(float value) {
-		return value * (1 - value);
+		return (float) (0.25 * Math.exp(-0.2 * Math.pow(value, 2)));
 	}
 	
 	private static float ReLU(float value) {
@@ -86,9 +95,8 @@ public class ActivationFunction {
 	
 	private static float ReLUDerivative(float value) {
 		float output = 0;
-		if (value > 0) {
+		if (value > 0)
 			output = 1;
-		}
 		return output;
 	}
 	
@@ -98,11 +106,16 @@ public class ActivationFunction {
 	
 	private static float leakyReLUDerivative(float value) {
 		float output = -0.05f;
-		if (value > 0) {
+		if (value > 0)
 			output = 1;
-		}
 		return output;
 	}
-	
-	
+
+	private static float tanh(float value) {
+		return (float) Math.tanh(value);
+	}
+
+	private static float tanhDerivative(float value) {
+		return (float) (1.0 / Math.pow(Math.cosh(value), 2));
+	}
 }

@@ -18,20 +18,20 @@ public class NeuralNetwork {
 		Neuron.setWeightRange(-1, 1);
 		
 		netConfig = new NetworkConfig();
-		netConfig.addFullyConnectedLayer(new Vector3(10, 1, 1), ActivationFunction.NONE);
-		netConfig.addFullyConnectedLayer(new Vector3(16, 1, 1), ActivationFunction.SIGMOID);
-		netConfig.addFullyConnectedLayer(new Vector3(32, 1, 1), ActivationFunction.SIGMOID);
-		netConfig.addFullyConnectedLayer(new Vector3(32, 32, 3), ActivationFunction.SIGMOID);
+		netConfig.addFullyConnectedLayer(new Vector3(32, 32, 1), ActivationFunction.NONE);
+		netConfig.addFullyConnectedLayer(new Vector3(16, 1, 1), ActivationFunction.TANH);
+		netConfig.addFullyConnectedLayer(new Vector3(16, 1, 1), ActivationFunction.TANH);
+		netConfig.addFullyConnectedLayer(new Vector3(10, 1, 1), ActivationFunction.TANH);
 		
 		network = new Network(netConfig);
 		
 		populateTrainingData();
-		
+
 		System.out.println("[INFO] Initial Outputs");
 		outputData(network, testingDataSet);
 		
 		System.out.println("[INFO] Training");
-		network.train(trainingDataSet, 0.05f, 0.01f, 500);
+		network.train(trainingDataSet, 0.05f, 0.01f, 50);
 		
 		System.out.println("[INFO] Final Outputs");
 		outputData(network, testingDataSet);
@@ -63,14 +63,14 @@ public class NeuralNetwork {
 			}
 			
 			// Text output direct print
-			// for (int j = 0; j < outputData.length; j++) {
-			// 	char symbol = Math.round(outputData[j][0][0]) == 1 ? '■' : '□';
-			// 	System.out.print(symbol + " ");
-			// }
-			// System.out.println();
+			for (int j = 0; j < outputData.length; j++) {
+				char symbol = Math.round(outputData[j][0][0]) == 1 ? '■' : '□';
+				System.out.print(symbol + " ");
+			}
+			System.out.println();
 			
 			// Image output saved to file
-			ImageUtil.dataToImage(output, layer, i);
+			// ImageUtil.dataToImage(output, layer, i);
 		}
 	}
 }
