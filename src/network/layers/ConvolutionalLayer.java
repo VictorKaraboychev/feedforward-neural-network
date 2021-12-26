@@ -1,6 +1,6 @@
 package network.layers;
 
-import network.NetworkConfig;
+import network.NetworkConfiguration;
 import network.activation.ActivationFunction;
 import utilities.NetworkUtil;
 import utilities.TrainingData;
@@ -22,7 +22,7 @@ public class ConvolutionalLayer extends Layer {
 		
 		super.neurons = new Neuron[x][y][depth];	
 		super.neuronConfig = new Vector3(x, y, depth);
-		super.type = NetworkConfig.CONVOLUTIONAL;
+		super.type = NetworkConfiguration.CONVOLUTIONAL;
 		
 		this.activationFunction = activation;
 		this.stride = stride;
@@ -90,7 +90,7 @@ public class ConvolutionalLayer extends Layer {
 			for (int m = 0; m < super.neuronConfig.x; m++) {
 				for (int n = 0; n < super.neuronConfig.y; n++) {
 					float error = 0;
-					if (nextLayer.type == NetworkConfig.POOLING) {
+					if (nextLayer.type == NetworkConfiguration.POOLING) {
 						error = super.neurons[m][n][i].gradient;
 					} else {
 						error = super.sumGradient(new Vector3(m, n, i), nextLayer);

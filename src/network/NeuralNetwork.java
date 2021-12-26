@@ -1,18 +1,15 @@
 package network;
 
-import network.activation.Linear;
-import network.activation.Sigmoid;
-import network.activation.Tanh;
+import network.activation.*;
 import network.layers.Neuron;
 import utilities.FileUtil;
-import utilities.NetworkUtil;
 import utilities.TrainingData;
 import utilities.Vector3;
 
 public class NeuralNetwork {
 	static Network network;
 	
-	static NetworkConfig netConfig;
+	static NetworkConfiguration netConfig;
 	
 	static final String path = "src/data/";
 	
@@ -22,7 +19,7 @@ public class NeuralNetwork {
 	public static void main(String[] args) {	
 		Neuron.setWeightRange(-1, 1);
 		
-		netConfig = new NetworkConfig();
+		netConfig = new NetworkConfiguration();
 		netConfig.addFullyConnectedLayer(new Vector3(10, 1, 1), new Linear());
 		netConfig.addFullyConnectedLayer(new Vector3(16, 1, 1), new Sigmoid());
 		netConfig.addFullyConnectedLayer(new Vector3(16, 1, 1), new Sigmoid());
@@ -36,7 +33,7 @@ public class NeuralNetwork {
 		outputData(network, testingDataSet);
 		
 		System.out.println("[INFO] Training");
-		network.train(trainingDataSet, 0.05f, 0.01f, 50);
+		network.train(trainingDataSet, 0.05f, 0.01f, 10);
 		
 		System.out.println("[INFO] Final Outputs");
 		outputData(network, testingDataSet);
@@ -45,9 +42,11 @@ public class NeuralNetwork {
 	public static void populateTrainingData() {
 		String training = path + "training/digits/";	
 		String testing = path + "testing/digits/";
-		
+
 		trainingDataSet = FileUtil.getImageData(training, false);
 		testingDataSet = FileUtil.getImageData(testing, false);
+
+		System.out.println(trainingDataSet.length);
 	}
 	
 	public static void outputData(Network neuralNetwork, TrainingData[] dataSet) {

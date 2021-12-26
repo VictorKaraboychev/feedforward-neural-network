@@ -1,16 +1,16 @@
 package network.activation;
 
 public class LeakyReLU extends ActivationFunction {
-	private float leak = 0.01f;
+	private float alpha = 0.01f;
 
 	@Override
 	public float activation(float value) {
-		return Math.max(this.leak * value, value);
+		return Math.max(this.alpha * value, value);
 	}
 
 	@Override
 	public float derivative(float value) {
-		float output = this.leak;
+		float output = this.alpha;
 		if (value > 0)
 			output = 1;
 		

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import network.activation.ActivationFunction;
 import utilities.Vector3;
 
-public class NetworkConfig {
+public class NetworkConfiguration {
 
 	public static int FULLY_CONNECTED = 0;
 	public static int CONVOLUTIONAL = 1;
@@ -24,7 +24,7 @@ public class NetworkConfig {
 	public int networkLayers = 0;
 	public int outputIndex = -1;
 	
-	public NetworkConfig() {
+	public NetworkConfiguration() {
 		this.layerType = new int[0];
 		this.neuronConfig = new Vector3[0];
 		this.activationFunction = new ActivationFunction[0];
@@ -46,7 +46,7 @@ public class NetworkConfig {
 		this.kernelFilter = Arrays.copyOf(this.kernelFilter, this.networkLayers);
 		this.stride = Arrays.copyOf(this.stride, this.networkLayers);
 		
-		this.layerType[this.outputIndex] = NetworkConfig.FULLY_CONNECTED;
+		this.layerType[this.outputIndex] = NetworkConfiguration.FULLY_CONNECTED;
 		this.neuronConfig[this.outputIndex] = neurons;
 		this.activationFunction[this.outputIndex] = activation;
 		this.depth[this.outputIndex] = -1;
@@ -66,7 +66,7 @@ public class NetworkConfig {
 		this.kernelFilter = Arrays.copyOf(this.kernelFilter, this.networkLayers);
 		this.stride = Arrays.copyOf(this.stride, this.networkLayers);
 		
-		this.layerType[this.outputIndex] = NetworkConfig.CONVOLUTIONAL;
+		this.layerType[this.outputIndex] = NetworkConfiguration.CONVOLUTIONAL;
 		this.neuronConfig[this.outputIndex] = null;
 		this.activationFunction[this.outputIndex] = activation;
 		this.depth[this.outputIndex] = depth;
@@ -86,7 +86,7 @@ public class NetworkConfig {
 		this.kernelFilter = Arrays.copyOf(this.kernelFilter, this.networkLayers);
 		this.stride = Arrays.copyOf(this.stride, this.networkLayers);
 		
-		this.layerType[this.outputIndex] = NetworkConfig.POOLING;
+		this.layerType[this.outputIndex] = NetworkConfiguration.POOLING;
 		this.neuronConfig[this.outputIndex] = null;
 		this.activationFunction[this.outputIndex] = null;
 		this.depth[this.outputIndex] = -1;

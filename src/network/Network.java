@@ -1,20 +1,17 @@
 package network;
 
 import network.activation.ActivationFunction;
-import network.layers.ConvolutionalLayer;
-import network.layers.FullyConnectedLayer;
-import network.layers.Layer;
-import network.layers.PoolingLayer;
+import network.layers.*;
 import utilities.NetworkUtil;
 import utilities.TrainingData;
 import utilities.Vector3;
 
 public class Network {
 	
-	NetworkConfig netConfig;
+	NetworkConfiguration netConfig;
 	public Layer[] layers;
 	
-	public Network(NetworkConfig netConfig) {
+	public Network(NetworkConfiguration netConfig) {
 		this.netConfig = netConfig;
 		this.layers = new Layer[this.netConfig.networkLayers];
 		
@@ -24,15 +21,15 @@ public class Network {
 		//For all hidden layers
 		for (int i = 1; i < this.netConfig.outputIndex; i++) {	
 			//Initialize layer type
-			if (this.netConfig.getLayerType(i) == NetworkConfig.FULLY_CONNECTED) {
+			if (this.netConfig.getLayerType(i) == NetworkConfiguration.FULLY_CONNECTED) {
 				//Create the layer as a fully connected layer			
 				this.layers[i] = new FullyConnectedLayer(this.netConfig.neuronConfig[i-1], this.netConfig.neuronConfig[i], this.netConfig.activationFunction[i]);
 			
-			} else if (this.netConfig.getLayerType(i) == NetworkConfig.CONVOLUTIONAL) {
+			} else if (this.netConfig.getLayerType(i) == NetworkConfiguration.CONVOLUTIONAL) {
 				//Create the layer as a convolutional layer
 				this.layers[i] = new ConvolutionalLayer(this.netConfig.neuronConfig[i-1], this.netConfig.depth[i], this.netConfig.kernelFilter[i], this.netConfig.stride[i], this.netConfig.activationFunction[i]);
 			
-			} else if (this.netConfig.getLayerType(i) == NetworkConfig.POOLING) {
+			} else if (this.netConfig.getLayerType(i) == NetworkConfiguration.POOLING) {
 				//Create the layer as a pooling layer
 				this.layers[i] = new PoolingLayer(this.netConfig.neuronConfig[i-1], this.netConfig.kernelFilter[i]);
 			}
@@ -112,13 +109,13 @@ public class Network {
 			avgError /= dataSet.length;
 
 			System.out.println("[DEBUG] Iteration: " + i + " | Average Error: " + avgError);
-			NeuralNetwork.outputData(this, NeuralNetwork.trainingDataSet);
+			// NeuralNetwork.outputData(this, NeuralNetwork.trainingDataSet);
 		}
 	}
 	
 	public void dropOut(float percentage) {
 		for (int i = 1; i < this.netConfig.outputIndex; i++) {
-			if (this.netConfig.getLayerType(i) == NetworkConfig.FULLY_CONNECTED) {
+			if (this.netConfig.getLayerType(i) == NetworkConfiguration.FULLY_CONNECTED) {
 				this.layers[i].dropOut(percentage);
 			}
 		}

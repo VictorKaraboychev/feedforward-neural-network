@@ -18,16 +18,16 @@ Simple [feed forward neural network](https://en.wikipedia.org/wiki/Feedforward_n
 
 ### Example Outputs
 
-![Zero](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/output/output0.png)
-![One](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/output/output1.png)
-![Two](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output2.png)
-![Three](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output3.png)
-![Four](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output4.png)
-![Five](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output5.png)
-![Six](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output6.png)
-![Seven](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output7.png)
-![Eight](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output8.png)
-![Nine](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/output9.png)
+![Zero](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/output/0.png)
+![One](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/output/1.png)
+![Two](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/2.png)
+![Three](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/3.png)
+![Four](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/4.png)
+![Five](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/5.png)
+![Six](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/6.png)
+![Seven](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/7.png)
+![Eight](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/8.png)
+![Nine](https://github.com/InternetAlien/feedforward-neural-network/blob/main/example/data/output/9.png)
 
 **Generation Settings**
 - Network configuration `(10x1x1), (16,1,1), (32,1,1), (32,32,1)`

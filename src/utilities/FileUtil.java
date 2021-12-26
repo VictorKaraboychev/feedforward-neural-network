@@ -39,6 +39,8 @@ public class FileUtil {
 				float[][][] dataInput = numberToData(i);
 				float[][][] dataOutput = imageToData(image, color);
 
+				System.out.println(dataInput.length + " " + dataOutput.length);
+
 				data[index] = new TrainingData(dataInput, dataOutput);
 				
 				index++;

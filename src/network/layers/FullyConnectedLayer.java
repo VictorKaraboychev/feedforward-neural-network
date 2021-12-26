@@ -1,6 +1,6 @@
 package network.layers;
 
-import network.NetworkConfig;
+import network.NetworkConfiguration;
 import network.activation.ActivationFunction;
 import utilities.NetworkUtil;
 import utilities.TrainingData;
@@ -14,7 +14,7 @@ public class FullyConnectedLayer extends Layer {
 		this.neurons = new Neuron[input.length][input[0].length][input[0][0].length];
 
 		this.neuronConfig = new Vector3(input.length, input[0].length, input[0][0].length);		
-		super.type = NetworkConfig.FULLY_CONNECTED;
+		super.type = NetworkConfiguration.FULLY_CONNECTED;
 		
 		for (int i = 0; i < this.neurons.length; i++) {
 			for (int j = 0; j < this.neurons[0].length; j++) {
@@ -31,7 +31,7 @@ public class FullyConnectedLayer extends Layer {
 		this.neuronConfig = new Vector3(neuronNum.x, neuronNum.y, neuronNum.z);
 		
 		this.activationFunction = activation;
-		super.type = NetworkConfig.FULLY_CONNECTED;
+		super.type = NetworkConfiguration.FULLY_CONNECTED;
 		
 		for (int i = 0; i < neuronNum.x; i++) {
 			for (int j = 0; j < neuronNum.y; j++) {

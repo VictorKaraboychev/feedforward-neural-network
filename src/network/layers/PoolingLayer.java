@@ -1,6 +1,6 @@
 package network.layers;
 
-import network.NetworkConfig;
+import network.NetworkConfiguration;
 import utilities.NetworkUtil;
 import utilities.TrainingData;
 import utilities.Vector3;
@@ -13,7 +13,7 @@ public class PoolingLayer extends Layer {
 		
 		super.neurons = new Neuron[prevLayerConfig.x / this.reduction][prevLayerConfig.y / this.reduction][prevLayerConfig.z];	
 		super.neuronConfig = new Vector3(prevLayerConfig.x / this.reduction, prevLayerConfig.y / this.reduction, prevLayerConfig.z);
-		super.type = NetworkConfig.POOLING;
+		super.type = NetworkConfiguration.POOLING;
 		
 		for (int i = 0; i < super.neuronConfig.x; i++) {
 			for (int j = 0; j < super.neuronConfig.y; j++) {
